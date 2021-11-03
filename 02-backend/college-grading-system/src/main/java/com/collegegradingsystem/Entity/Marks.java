@@ -33,11 +33,11 @@ public class Marks {
     @Column(name = "student_id")
     private String studentId;
 
-    @Column(name = "marks_1")
-    private Double marks1;
+    @Column(name = "mark_1")
+    private Double mark1;
 
-    @Column(name = "marks_2")
-    private Double marks2;
+    @Column(name = "mark_2")
+    private Double mark2;
 
     @Column(name = "created_by")
     private String createdBy;

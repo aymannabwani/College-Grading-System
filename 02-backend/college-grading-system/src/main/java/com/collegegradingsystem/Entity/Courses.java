@@ -26,9 +26,6 @@ public class Courses {
     @Column(name = "course_name")
     private String courseName;
 
-    @Column(name = "teacher_name")
-    private String teacherName;
-
     @Column(name = "active")
     private Boolean active;
 

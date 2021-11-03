@@ -1,0 +1,34 @@
+<!-- <router-outlet></router-outlet> -->
+<div class="container" style="margin-top: 4px">
+  <table
+    class="table table-bordered"
+    style="border-color: black; border-style: double; width: 1100px"
+  >
+    <thead>
+      <tr
+        style="text-align: center; height: 30px; background: rgb(145, 182, 155)"
+      >
+        <th>Photo</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>User Type</th>
+        <th>User Name</th>
+        <th>Active</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let tempUser of users">
+        <tr>
+          <td class="align-middle">
+            <img src="{{ tempUser.imageUrl }}" style="height: 40px" />
+          </td>
+          <td>{{ tempUser.firstName }}</td>
+          <td>{{ tempUser.lastName }}</td>
+          <td>{{ tempUser.university }}</td>
+          <td>{{ tempUser.address }}</td>
+          <td>{{ tempUser.active }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
