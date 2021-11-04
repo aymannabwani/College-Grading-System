@@ -12,9 +12,12 @@ export class UsersService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getUsersList(): Observable<Users[]> {
+  getUsersList(theRoleId: number): Observable<Users[]> {
+    // build URL based on roleCategoryId
+    const searchUrl = `${this.baseUrl}/search/findByRoleId?roleId=${theRoleId}`;
+    console.log(theRoleId);
     return this.httpClient
-      .get<GetResponse>(this.baseUrl)
+      .get<GetResponse>(searchUrl)
       .pipe(map((response) => response._embedded.users));
   }
 }

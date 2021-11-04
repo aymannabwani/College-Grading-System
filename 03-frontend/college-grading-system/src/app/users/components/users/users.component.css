@@ -1,0 +1,12 @@
+.topBorderOnly {
+  border-top: 1px solid black;
+}
+
+.bottomBorderOnly {
+  border-bottom: 1px solid black;
+}
+
+.th-layout {
+  vertical-align: middle;
+  width: 250px;
+}

@@ -8,18 +8,18 @@ import { TeacherCoursesComponent } from './components/teacher-courses/teacher-co
 import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    children: [
-      { path: 'users', component: UsersComponent },
-      { path: 'courses', component: CoursesComponent },
-      { path: 'teacher_courses', component: TeacherCoursesComponent },
-      { path: 'student_courses', component: StudentCoursesComponent },
-      { path: 'marks', component: MarksComponent },
-      { path: 'role_category', component: RoleCategoryComponent },
-      { path: '', redirectTo: '/', pathMatch: 'full' },
-    ],
-  },
+  // {
+  //   path: '',
+  //   children: [
+  //     { path: 'users', component: UsersComponent },
+  //     { path: 'courses', component: CoursesComponent },
+  //     { path: 'teacher_courses', component: TeacherCoursesComponent },
+  //     { path: 'student_courses', component: StudentCoursesComponent },
+  //     { path: 'marks', component: MarksComponent },
+  //     { path: 'role_category', component: RoleCategoryComponent },
+  //     { path: '', redirectTo: '/', pathMatch: 'full' },
+  //   ],
+  // },
 ];
 
 @NgModule({

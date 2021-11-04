@@ -6,20 +6,21 @@ import { LoginComponent } from './auth/components/login/login.component';
 import { PageNotFoundComponent } from './auth/components/page-not-found/page-not-found.component';
 import { AboutComponent } from './shared/components/about/about.component';
 import { FaqsComponent } from './shared/components/faqs/faqs.component';
+import { UsersComponent } from './users/components/users/users.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'faqs', component: FaqsComponent },
-  { path: 'home', component: LoginComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  {
-    path: '',
-    loadChildren: () =>
-      import('./users/users.module').then((m) => m.UsersModule),
-  },
-  { path: '**', component: PageNotFoundComponent },
+  // { path: 'login', component: LoginComponent },
+  // { path: 'forgot-password', component: ForgotPasswordComponent },
+  // { path: 'about', component: AboutComponent },
+  // { path: 'faqs', component: FaqsComponent },
+  // { path: 'home', component: LoginComponent },
+  // { path: '', redirectTo: '/login', pathMatch: 'full' },
+  // {
+  //   path: '',
+  //   loadChildren: () =>
+  //     import('./users/users.module').then((m) => m.UsersModule),
+  // },
+  // { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

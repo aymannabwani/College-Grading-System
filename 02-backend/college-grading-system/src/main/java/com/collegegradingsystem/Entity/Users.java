@@ -30,7 +30,7 @@ public class Users {
     private String lastName;
 
     @Column(name = "role_id")
-    private String roleId;
+    private Long roleId;
 
     @Column(name = "image_url")
     private String imageUrl;

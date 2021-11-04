@@ -32,10 +32,10 @@ public class StudentCourses {
     private TeacherCourses tcId;
 
     @Column(name = "tchr_crs_id")
-    private String tchrCrsId;
+    private Long tchrCrsId;
 
     @Column(name = "student_id")
-    private String teacherId;
+    private Long teacherId;
 
     @Column(name = "created_by")
     private String createdBy;

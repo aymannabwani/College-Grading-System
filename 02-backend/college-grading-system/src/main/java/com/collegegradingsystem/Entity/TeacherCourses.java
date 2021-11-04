@@ -32,10 +32,10 @@ public class TeacherCourses {
     private Users role;
 
     @Column(name = "course_id")
-    private String courseId;
+    private Long courseId;
 
     @Column(name = "teacher_id")
-    private String teacherId;
+    private Long teacherId;
 
     @Column(name = "created_by")
     private String createdBy;
