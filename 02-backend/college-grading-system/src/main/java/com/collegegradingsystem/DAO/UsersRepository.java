@@ -13,4 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface UsersRepository extends JpaRepository<Users, Long> {
 
     Page<Users> findByRoleId(@RequestParam("roleId") Long roleId, Pageable pageable);
+
+    Page<Users> findByFirstNameContaining(@RequestParam("firstName") String firstName, Pageable pageable);
 }

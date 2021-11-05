@@ -1,5 +1,7 @@
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormControl, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -8,10 +10,14 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { UsersService } from './services/users.service';
 import { SharedModule } from './shared/shared.module';
+import { RoleCategoryComponent } from './users/components/role-category/role-category.component';
+import { SearchComponent } from './users/components/search/search.component';
+import { UserDetailsComponent } from './users/components/user-details/user-details.component';
 import { UsersComponent } from './users/components/users/users.component';
-import { UsersModule } from './users/users.module';
 
 const routes: Routes = [
+  { path: 'users/:userId', component: UsersComponent },
+  { path: 'search/:keyword', component: UsersComponent },
   { path: 'role/:roleId', component: UsersComponent },
   { path: 'role', component: UsersComponent },
   { path: 'users', component: UsersComponent },
@@ -20,7 +26,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, UsersComponent],
+  declarations: [
+    AppComponent,
+    UsersComponent,
+    RoleCategoryComponent,
+    SearchComponent,
+  ],
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
@@ -28,7 +39,8 @@ const routes: Routes = [
     HttpClientModule,
     AuthModule,
     SharedModule,
-    UsersModule,
+    CommonModule,
+    FormsModule,
   ],
   providers: [UsersService],
   bootstrap: [AppComponent],

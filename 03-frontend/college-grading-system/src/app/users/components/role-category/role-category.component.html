@@ -1,1 +1,38 @@
-<p>role-category works!</p>
+<div class="menu-sidebar-content js-scrollbar1">
+  <nav class="navbar-sidebar">
+    <button
+      type="button"
+      class="btn btn-primary"
+      style="width: 120px; font-size: 14px"
+    >
+      Add new User
+    </button>
+
+    <ul class="list-unstyled navbar-list">
+      {{
+        roleCategories
+      }}
+      <!-- <li *ngFor="let tempRoleCategory of roleCategories">
+        <a
+          routerLink="/role/{{ tempRoleCategory.roleId }}"
+          routerLinkActive="active-link"
+        >
+          Adminstrators</a
+        >
+      </li> -->
+      <li>
+        <a routerLink="/role/1" routerLinkActive="active-link">Adminstrators</a>
+      </li>
+      <li>
+        <a routerLink="/role/2" routerLinkActive="active-link">Teachers</a>
+      </li>
+      <li>
+        <a routerLink="/role/3" routerLinkActive="active-link">Students</a>
+      </li>
+      <!-- Below is to add new Category when needed -->
+      <!-- <li>
+          <a href="#">Future category</a>
+        </li> -->
+    </ul>
+  </nav>
+</div>

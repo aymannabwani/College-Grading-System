@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
@@ -11,6 +12,7 @@ import { Users } from '../../model/users';
 export class UsersComponent implements OnInit {
   users: Users[] = [];
   currentroleId!: number;
+  searchMode: boolean;
 
   constructor(
     private userService: UsersService,
@@ -24,6 +26,25 @@ export class UsersComponent implements OnInit {
   }
 
   usersList() {
+    this.searchMode = this.route.snapshot.paramMap.has('keyword');
+
+    if (this.searchMode) {
+      this.handleSearchUsers();
+    } else {
+      this.hadleUsers();
+    }
+  }
+
+  handleSearchUsers() {
+    const theKeyword: string = this.route.snapshot.paramMap.get('keyword');
+
+    // search  among Users for the User using the keyword
+    this.userService.searchUsers(theKeyword).subscribe((data) => {
+      this.users = data;
+    });
+  }
+
+  hadleUsers() {
     // check if roleId available
     const hasRoleId: boolean = this.route.snapshot.paramMap.has('roleId');
 

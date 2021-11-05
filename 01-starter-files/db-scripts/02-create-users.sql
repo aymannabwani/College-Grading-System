@@ -8,13 +8,6 @@ CREATE SCHEMA `college-grading-system`;
 USE `college-grading-system` ;
 
 -- -----------------------------------------------------
--- Schema college-grading-system
--- -----------------------------------------------------
-
-CREATE SCHEMA IF NOT EXISTS`college-grading-system`;
-USE `college-grading-system` ;
-
--- -----------------------------------------------------
 -- Table `college-grading-system`.`role_category`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `college-grading-system`.`role_category` (
@@ -70,31 +63,31 @@ AUTO_INCREMENT = 1;
 -- -----------------------------------------------------
 
 INSERT INTO users (first_name, last_name, role_id, image_url, university, address, city, province, postal_code, country, phone, fax, email, gender, birthdate, password, active, created_by, updated_by, date_created, last_updated)
-            VALUES ('John', 'Bradely', 1, 'assets/photos/Ayman.png', 'Damascus', '11e Avenue', 'Laval', 'Quebec', 'A1B2C3', 'Canada', '1234567890', '1212131314', 'jhn_brdly@gmail.com', 'Male', '1985-10-03', 2021001001, 1, 'John', NULL, NOW(), NULL);
+            VALUES ('John', 'Bradely', 1, 'assets/images/Adminstrators/1.png', 'Damascus', '11e Avenue', 'Laval', 'Quebec', 'A1B2C3', 'Canada', '1234567890', '1212131314', 'jhn_brdly@gmail.com', 'Male', '1985-10-03', 2021001001, 1, 'John', NULL, NOW(), NULL);
 
 INSERT INTO users (first_name, last_name, role_id, image_url, university, address, city, province, postal_code, country, phone, fax, email, gender, birthdate, password, active, created_by, updated_by, date_created, last_updated)
-            VALUES ('Mohd', 'Salah', 1, 'assets/photos/Ayman.png', 'Damascus', '11e Avenue', 'Laval', 'Quebec', 'A2B2C3', 'Canada', '1234567890', '1212131314', 'mohd_salah@gmail.com', 'Male', '1975-01-12',2021001001,1, 'Mohd', NULL, NOW(), NULL);
+            VALUES ('Mohd', 'Salah', 1, 'assets/images/Adminstrators/2.png', 'Damascus', '11e Avenue', 'Laval', 'Quebec', 'A2B2C3', 'Canada', '1234567890', '1212131314', 'mohd_salah@gmail.com', 'Male', '1975-01-12',2021001001,1, 'Mohd', NULL, NOW(), NULL);
 
 INSERT INTO users (first_name, last_name, role_id, image_url, university, address, city, province, postal_code, country, phone, fax, email, gender, birthdate, password, active, created_by, updated_by, date_created, last_updated)
-            VALUES ('Suzan', 'Smith', 2, 'assets/photos/placeholder.png', 'Damascus','11e Avenue', 'Laval', 'Quebec', 'D5E5F6', 'Canada', '1234567890', '1212131314', 'suzav_smth@gmail.com', 'Female', '1953-05-18', 2021001001, 1, 'Mohd', NULL, NOW(), NULL);
+            VALUES ('Suzan', 'Smith', 2, 'assets/images/Teachers/1.png', 'Damascus','11e Avenue', 'Laval', 'Quebec', 'D5E5F6', 'Canada', '1234567890', '1212131314', 'suzav_smth@gmail.com', 'Female', '1953-05-18', 2021001001, 1, 'Mohd', NULL, NOW(), NULL);
 
 INSERT INTO users (first_name, last_name, role_id, image_url, university, address, city, province, postal_code, country, phone, fax, email, gender, birthdate, password, active, created_by, updated_by, date_created, last_updated)
-            VALUES ('Lionel', 'Messi', 2, 'assets/photos/placeholder.png', 'Damascus','11e Avenue', 'Laval', 'Quebec', 'D4E5F6', 'Canada', '1234567890', '1212131314', 'leo_messi@gmail.com', 'Male', '1973-01-05', 2021001001, 1, 'Mohd', NULL, NOW(), NULL);
+            VALUES ('Lionel', 'Messi', 2, 'assets/images/Teachers/2.png', 'Damascus','11e Avenue', 'Laval', 'Quebec', 'D4E5F6', 'Canada', '1234567890', '1212131314', 'leo_messi@gmail.com', 'Male', '1973-01-05', 2021001001, 1, 'Mohd', NULL, NOW(), NULL);
 
 INSERT INTO users (first_name, last_name, role_id, image_url, university, address, city, province, postal_code, country, phone, fax, email, gender, birthdate, password, active, created_by, updated_by, date_created, last_updated)
-            VALUES ('Alfred', 'Nobel', 2, 'assets/photos/placeholder.png', 'Damascus','11e Avenue', 'Laval', 'Quebec', 'D4E5F6', 'Canada', '1234567890', '1212131314', 'alfred_nobel@gmail.com', 'Male', '1975-10-14', 2021001001, 1, 'Mohd', NULL, NOW(), NULL);
+            VALUES ('Alfred', 'Nobel', 2, 'assets/images/Teachers/3.png', 'Damascus','11e Avenue', 'Laval', 'Quebec', 'D4E5F6', 'Canada', '1234567890', '1212131314', 'alfred_nobel@gmail.com', 'Male', '1975-10-14', 2021001001, 1, 'Mohd', NULL, NOW(), NULL);
 
 INSERT INTO users (first_name, last_name, role_id, image_url, university, address, city, province, postal_code, country, phone, fax, email, gender, birthdate, password, active, created_by, updated_by, date_created, last_updated)
-			VALUES ('Tina', 'Black', 3, 'assets/photos/placeholder.png', 'Dawson','11e Avenue', 'Laval', 'Quebec', 'G7H8I9', 'Canada', '1234567890', '1212131314', 'tina_blck12@gmail.com', 'Female', '2001-02-001', 2021001001, 1, 'John', NULL, NOW(), NULL);
+			VALUES ('Tina', 'Black', 3, 'assets/images/Students/1.png', 'Dawson','11e Avenue', 'Laval', 'Quebec', 'G7H8I9', 'Canada', '1234567890', '1212131314', 'tina_blck12@gmail.com', 'Female', '2001-02-001', 2021001001, 1, 'John', NULL, NOW(), NULL);
 
 INSERT INTO users (first_name, last_name, role_id, image_url, university, address, city, province, postal_code, country, phone, fax, email, gender, birthdate, password, active, created_by, updated_by, date_created, last_updated)
-			VALUES ('Diego', 'Maradona', 3, 'assets/photos/placeholder.png', 'Dawson','11e Avenue', 'Laval', 'Quebec', 'G8H8I9', 'Canada', '1234567890', '1212131314', 'diego_maradona2@gmail.com', 'Male', '2000-05-10', 2021001001, 1, 'Mohd', NULL, NOW(), NULL);
+			VALUES ('Diego', 'Maradona', 3, 'assets/images/Students/2.png', 'Dawson','11e Avenue', 'Laval', 'Quebec', 'G8H8I9', 'Canada', '1234567890', '1212131314', 'diego_maradona2@gmail.com', 'Male', '2000-05-10', 2021001001, 1, 'Mohd', NULL, NOW(), NULL);
 
 INSERT INTO users (first_name, last_name, role_id, image_url, university, address, city, province, postal_code, country, phone, fax, email, gender, birthdate, password, active, created_by, updated_by, date_created, last_updated)
-			VALUES ('Kenny', 'Rogers', 3, 'assets/photos/placeholder.png', 'MCIT','57e Avenue', 'Laval', 'Quebec', 'G1H8I9', 'Canada', '1234567890', '1212131314', 'kenny_rogers@gmail.com', 'Male', '1999-07-25', 2021001001, 1, NOW(), 'John', NULL, NULL);
+			VALUES ('Kenny', 'Rogers', 3, 'assets/images/Students/3.png', 'MCIT','57e Avenue', 'Laval', 'Quebec', 'G1H8I9', 'Canada', '1234567890', '1212131314', 'kenny_rogers@gmail.com', 'Male', '1999-07-25', 2021001001, 1, NOW(), 'John', NULL, NULL);
 
 INSERT INTO users (first_name, last_name, role_id, image_url, university, address, city, province, postal_code, country, phone, fax, email, gender, birthdate, password, active, created_by, updated_by, date_created, last_updated)
-			VALUES ('Ennio', 'Morricone', 3, 'assets/photos/placeholder.png', 'MCIT','121e Avenue', 'Laval', 'Quebec', 'G2L8I9', 'Canada', '1234567890', '1212131314', 'ennio_morricone@gmail.com', 'Male', '1989-12-31', 2021001001, 1, 'Mohd', NULL, NOW(), NULL);
+			VALUES ('Ennio', 'Morricone', 3, 'assets/images/Students/4.png', 'MCIT','121e Avenue', 'Laval', 'Quebec', 'G2L8I9', 'Canada', '1234567890', '1212131314', 'ennio_morricone@gmail.com', 'Male', '1989-12-31', 2021001001, 1, 'Mohd', NULL, NOW(), NULL);
 
 
 - -----------------------------------------------------

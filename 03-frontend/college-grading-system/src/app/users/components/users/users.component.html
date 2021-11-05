@@ -1,38 +1,16 @@
 <div class="page-wrapper">
   <!-- MENU SIDEBAR-->
   <aside class="menu-sidebar d-none d-lg-block">
-    <p style="padding-left: 3rem">Welcome to</p>
+    <h3><p style="padding-left: 1rem">Welcome to</p></h3>
     <div class="logo">
-      <img src="assets/cgslogo.png" alt="Welcome" class="img-responsive" />
+      <img
+        src="assets/cgslogo.png"
+        alt="Welcome"
+        class="img-responsive"
+        style="border-style: none"
+      />
     </div>
-    <div class="menu-sidebar-content js-scrollbar1">
-      <nav class="navbar-sidebar">
-        <button
-          type="button"
-          class="btn btn-primary"
-          style="width: 120px; font-size: 14px"
-        >
-          Add new User
-        </button>
-        <ul class="list-unstyled navbar-list">
-          <li>
-            <a routerLink="/role/1" routerLinkActive="active-link"
-              >Adminstrators</a
-            >
-          </li>
-          <li>
-            <a routerLink="/role/2" routerLinkActive="active-link">Teachers</a>
-          </li>
-          <li>
-            <a routerLink="/role/3" routerLinkActive="active-link">Students</a>
-          </li>
-          <!-- Below is to add new Category when needed -->
-          <!-- <li>
-            <a href="#">Future category</a>
-          </li> -->
-        </ul>
-      </nav>
-    </div>
+    <app-role-category></app-role-category>
   </aside>
   <!-- END MENU SIDEBAR-->
 
@@ -44,15 +22,7 @@
       <div class="section-content section-content-p30">
         <div class="container-fluid">
           <div class="header-wrap">
-            <form class="form-header" onsubmit="return false;" method="GET">
-              <input
-                class="au-input au-input-xl"
-                type="text"
-                name="search"
-                placeholder="Search for data ..."
-              />
-              <button class="au-btn-submit" type="submit">Search</button>
-            </form>
+            <app-search></app-search>
           </div>
           <div class="account-wrap"></div>
         </div>
@@ -75,7 +45,9 @@
                   <div *ngFor="let tempUser of users">
                     <tr>
                       <th>
-                        <img src="{{ tempUser.imageUrl }}" />
+                        <a routerLink="/users/{{ tempUser.userId }}">
+                          <img src="{{ tempUser.imageUrl }}"
+                        /></a>
                       </th>
                       <th class="th-layout">
                         Name :
@@ -84,7 +56,11 @@
                       </th>
                       <th class="th-layout">Role : {{ tempUser.roleId }}</th>
                       <th class="th-layout" style="width: 600px">
-                        <button type="button" class="btn btn-primary">
+                        <button
+                          routerLink="/users/{{ tempUser.userId }}"
+                          type="button"
+                          class="btn btn-primary"
+                        >
                           Details
                         </button>
                         <button type="button" class="btn btn-update">
@@ -99,6 +75,15 @@
                   </div>
                 </thead>
               </table>
+              <!-- if User doesn't exist  then dispaly message -->
+
+              <div
+                *ngIf="users?.length == 0"
+                class="alert alert-warning col-md-12"
+                role="alert"
+              >
+                No User Found.
+              </div>
             </div>
           </div>
         </div>
