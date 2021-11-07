@@ -1,15 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
+import { Users } from '../../model/users';
 
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
-  styleUrls: ['./user-details.component.css']
+  styleUrls: ['./user-details.component.css'],
 })
 export class UserDetailsComponent implements OnInit {
+  user: Users = new Users();
 
-  constructor() { }
+  constructor(
+    private usersService: UsersService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(() => {
+      this.handleUserDetails();
+    });
   }
 
+  handleUserDetails() {
+    // get the "userId" param string and convert it to number using the "+" symbol
+    const theUserId: number = +this.route.snapshot.paramMap.get('userId');
+    this.usersService.getUser(theUserId).subscribe((data) => {
+      this.user = data;
+    });
+  }
 }

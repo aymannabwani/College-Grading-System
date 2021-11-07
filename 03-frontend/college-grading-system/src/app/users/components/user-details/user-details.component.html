@@ -1,5 +1,38 @@
-<div class="detail-section">
+<div class="detail-section" style="margin-top: 60px; margin-left: 30px">
   <div class="container-fluid">
-    <p style="margin-top: 100pxx">user-details works!</p>
+    <img src="{{ user.imageUrl }}" class="detail-img" />
+
+    <h1 style="margin-top: 50px">{{ user.firstName }} {{ user.lastName }}</h1>
+
+    <ul
+      [ngSwitch]="user.roleId"
+      style="
+        list-style: none;
+        font-size: 2rem;
+        font-weight: bolder;
+        color: black;
+      "
+    >
+      <li style="margin: 0px" *ngSwitchCase="'1'">
+        Role :
+        <span style="font-size: 1.5rem; color: blue">Adminstrator</span>
+      </li>
+      <li style="margin: 0px" *ngSwitchCase="'2'">
+        Role :
+        <span style="font-size: 1.5rem; color: blue">Teacher</span>
+      </li>
+      <li style="margin: 0px" *ngSwitchCase="'3'">
+        Role :
+        <span style="font-size: 1.5rem; color: blue">Student</span>
+      </li>
+    </ul>
+
+    <a
+      routerLink="/users"
+      class="btn btn-primary"
+      style="text-decoration: none; text-align: center; margin-top: 30px"
+      routerLinkActive="active-link"
+      >CLose</a
+    >
   </div>
 </div>

@@ -1,25 +1,28 @@
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import { FormControl, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthModule } from './auth/auth.module';
+import { UsersComponent } from './users/components/users/users.component';
+import { HttpClientModule } from '@angular/common/http';
 import { UsersService } from './services/users.service';
+
+import { Routes, RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { AuthModule } from './auth/auth.module';
+import { HomeComponent } from './users/components/home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { RoleCategoryComponent } from './users/components/role-category/role-category.component';
 import { SearchComponent } from './users/components/search/search.component';
 import { UserDetailsComponent } from './users/components/user-details/user-details.component';
-import { UsersComponent } from './users/components/users/users.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const routes: Routes = [
-  { path: 'users/:userId', component: UsersComponent },
+  { path: 'users/:userId', component: UserDetailsComponent },
   { path: 'search/:keyword', component: UsersComponent },
   { path: 'role/:roleId', component: UsersComponent },
   { path: 'role', component: UsersComponent },
+  { path: 'users', component: UsersComponent },
   { path: 'users', component: UsersComponent },
   { path: '', redirectTo: '/users', pathMatch: 'full' },
   { path: '**', redirectTo: '/users', pathMatch: 'full' },
@@ -28,9 +31,11 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     UsersComponent,
     RoleCategoryComponent,
     SearchComponent,
+    UserDetailsComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -39,8 +44,8 @@ const routes: Routes = [
     HttpClientModule,
     AuthModule,
     SharedModule,
-    CommonModule,
-    FormsModule,
+    NgbModule,
+    NgxPaginationModule,
   ],
   providers: [UsersService],
   bootstrap: [AppComponent],

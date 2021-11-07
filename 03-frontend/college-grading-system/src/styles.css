@@ -46,7 +46,7 @@ button {
 }
 
 img {
-  max-width: 60%;
+  max-width: 30%;
   height: auto;
   vertical-align: middle;
 }
@@ -335,7 +335,7 @@ input.au-input.au-input-xl {
 }
 
 .menu-sidebar .logo {
-  background: #fff;
+  background: none;
   height: 75px;
   padding: 0 35px;
   display: -webkit-box;
@@ -358,11 +358,11 @@ input.au-input.au-input-xl {
 
 .menu-sidebar .navbar-list .navbar-sub-list {
   display: none;
-  padding-left: 34px;
+  padding-left: 20px;
 }
 
 .menu-sidebar .navbar-list .navbar-sub-list li a {
-  padding: 11.5px 0;
+  padding: 5px 0;
 }
 
 .menu-sidebar-content {
@@ -373,7 +373,7 @@ input.au-input.au-input-xl {
 }
 
 .navbar-sidebar {
-  padding: 35px;
+  padding: 20px;
   padding-bottom: 0;
 }
 
@@ -699,19 +699,20 @@ select {
 
 .table {
   margin: 0;
+  width: 100%;
 }
+
 table.table.table-bordered {
-  border: 1px solid #ccc;
-  background: #fff;
+  border-radius: 4px;
+  background: rgb(59, 109, 165);
 }
-.table-bordered tr {
-  border: 1px solid #031f3b;
-}
+
 table.table.table-bordered th {
-  background: #409b7c;
+  background: #94bbee;
   color: #fff;
   font-size: 14px;
   padding: 5px;
+  width: 100%;
 }
 .table-responsive {
   padding-right: 1px;
@@ -740,6 +741,10 @@ table.table.table-bordered th {
 .detail-section {
   margin-top: 60px;
 }
+
+.detail-img {
+  width: 30%;
+}
 /**/
 
 /* 
@@ -760,8 +765,8 @@ table.table.table-bordered th {
   border-color: #0da8e4 !important;
   text-align: center;
   display: inline-block;
-  border-radius: 4px;
-  font-size: 1.3rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
 }
 .btn-danger {
   color: #fff;
@@ -769,8 +774,8 @@ table.table.table-bordered th {
   border-color: #e42d0d !important;
   text-align: center;
   display: inline-block;
-  border-radius: 4px;
-  font-size: 1.3rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
 }
 .btn-update {
   color: #fff;
@@ -780,8 +785,8 @@ table.table.table-bordered th {
   margin-left: 40px;
   margin-right: 40px;
   display: inline-block;
-  border-radius: 4px;
-  font-size: 1.3rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
 }
 a.primary-btn {
   background: #05143f;
@@ -814,7 +819,10 @@ footer ul li a {
 footer {
   background: #232324;
   z-index: 1;
-  position: relative;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   text-align: center;
 }
 footer li a {
@@ -1016,6 +1024,7 @@ footer ul li {
     color: #205b8d;
     margin-left: 15px;
   }
+
   .footer-pagination {
     text-align: center;
   }
@@ -1059,7 +1068,7 @@ footer ul li {
     display: inline-block;
     background: #fff;
     padding: 0 10px;
-    color: #000;
+    color: rgb(201, 16, 16);
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     margin-left: 6px;

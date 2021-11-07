@@ -14,6 +14,25 @@ export class UsersService {
 
   constructor(private httpClient: HttpClient) {}
 
+  getUser(theUserId: number): Observable<Users> {
+    // build URL based on userId
+    const userUrl = `${this.baseUrl}/${theUserId}`;
+    console.log(theUserId);
+    return this.httpClient.get<Users>(userUrl);
+  }
+
+  getUsersListPaginate(
+    thePage: number,
+    thePageSize: number,
+    theRoleId: number
+  ): Observable<GetResponseUsers> {
+    // build URL based on roleId and page
+    const searchUrl =
+      `${this.baseUrl}/search/findByRoleId?roleId=${theRoleId}` +
+      `&page=${thePage}&size=${thePageSize}`;
+    return this.httpClient.get<GetResponseUsers>(searchUrl);
+  }
+
   getUsersList(theRoleId: number): Observable<Users[]> {
     // build URL based on roleCategoryId
     const searchUrl = `${this.baseUrl}/search/findByRoleId?roleId=${theRoleId}`;
@@ -45,6 +64,12 @@ export class UsersService {
 interface GetResponseUsers {
   _embedded: {
     users: Users[];
+  };
+  page: {
+    size: number;
+    totalElements: number;
+    totalPages: number;
+    number: number;
   };
 }
 

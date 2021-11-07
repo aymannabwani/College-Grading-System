@@ -5,9 +5,22 @@ import { MarksComponent } from './components/marks/marks.component';
 import { RoleCategoryComponent } from './components/role-category/role-category.component';
 import { StudentCoursesComponent } from './components/student-courses/student-courses.component';
 import { TeacherCoursesComponent } from './components/teacher-courses/teacher-courses.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UsersComponent } from './components/users/users.component';
 
-const routes: Routes = [
+const route: Routes = [
+  // { path: 'users/:userId', component: UserDetailsComponent },
+  // { path: 'search/:keyword', component: UsersComponent },
+  // { path: 'role/:roleId', component: UsersComponent },
+  // { path: 'role', component: UsersComponent },
+  // { path: 'users', component: UsersComponent },
+  // { path: '', redirectTo: '/users', pathMatch: 'full' },
+  // {
+  //   path: '',
+  //   loadChildren: () =>
+  //     import('../shared/shared.module').then((m) => m.SharedModule),
+  // },
+  // { path: '**', redirectTo: '/users', pathMatch: 'full' },
   // {
   //   path: '',
   //   children: [
@@ -23,7 +36,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(route)],
   exports: [RouterModule],
 })
 export class UsersRoutingModule {}

@@ -3,36 +3,21 @@
     <button
       type="button"
       class="btn btn-primary"
-      style="width: 120px; font-size: 14px"
+      style="width: 140px; font-size: 14px; font-weight: bolder"
     >
       Add new User
     </button>
 
-    <ul class="list-unstyled navbar-list">
-      {{
-        roleCategories
-      }}
-      <!-- <li *ngFor="let tempRoleCategory of roleCategories">
+    <ul class="list-unstyled navbar-list" style="padding-top: 40px">
+      <li *ngFor="let tempRoleCategory of roleCategories">
         <a
+          style="text-decoration: none"
           routerLink="/role/{{ tempRoleCategory.roleId }}"
           routerLinkActive="active-link"
         >
-          Adminstrators</a
+          {{ tempRoleCategory.roleName }}</a
         >
-      </li> -->
-      <li>
-        <a routerLink="/role/1" routerLinkActive="active-link">Adminstrators</a>
       </li>
-      <li>
-        <a routerLink="/role/2" routerLinkActive="active-link">Teachers</a>
-      </li>
-      <li>
-        <a routerLink="/role/3" routerLinkActive="active-link">Students</a>
-      </li>
-      <!-- Below is to add new Category when needed -->
-      <!-- <li>
-          <a href="#">Future category</a>
-        </li> -->
     </ul>
   </nav>
 </div>
