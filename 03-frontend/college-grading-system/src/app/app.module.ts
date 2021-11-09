@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './users/components/users/users.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersService } from './services/users.service';
+import { AuthService } from './services/auth.service';
 
 import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +27,12 @@ const routes: Routes = [
   { path: 'users', component: UsersComponent },
   { path: '', redirectTo: '/users', pathMatch: 'full' },
   { path: '**', redirectTo: '/users', pathMatch: 'full' },
+
+  /**
+   * TODO
+   *  {path: 'teacherOnly', component: XYZ, teacherAccess[AuthService] } 
+   */
+
 ];
 
 @NgModule({

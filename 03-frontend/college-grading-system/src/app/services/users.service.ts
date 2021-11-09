@@ -60,7 +60,51 @@ export class UsersService {
       .get<GetResponseRoleCategory>(this.roleUrl)
       .pipe(map((response) => response._embedded.roleCategory));
   }
+
+  authenticate(roleId: number, email: string, password: string) {
+    const searchUrl = `${this.baseUrl}/search/findByRoleIdAndEmailAndPassword?roleId=${roleId}&email=${email}&password=${password}`;
+    if(this.getUser(searchUrl) != null) {
+      sessionStorage.setItem('roleId', roleId);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  private getUser(searchUrl: string): Observable<Users> {
+    return this.httpClient
+      .get<GetResponseUser>(searchUrl)
+      .pipe(map((response) => response._embedded.users));
+  }
+
+  /**
+   * TODO
+   * <a *ngIf="usersService.isAdminstratorLoggedIn()" routerLink="/adminOnlyPath">
+   */
+  isAdminstratorLoggedIn() {
+    return sessionStorage.getItem('roleId') == 1;
+  }
+
+  isTeacherLoggedIn() {
+    return sessionStorage.getItem('roleId') == 2;
+  }
+
+  isStudentLoggedIn() {
+    return sessionStorage.getItem('roleId') == 3;
+  }
+
+  logOut() {
+    sessionStorage.removeItem('roleId');
+  }
+
 }
+
+interface GetResponseUser {
+  _embedded: {
+    users: Users;
+  };
+}
+
 interface GetResponseUsers {
   _embedded: {
     users: Users[];

@@ -4,11 +4,11 @@
 
   <div>
     <label>User Type</label>
-    <select formControlName="user" style="height: 40px">
+    <select formControlName="user" style="height: 40px" [(ngModel)]="roleId">
       <option selected disabled>Select User</option>
-      <option>Adminstartor</option>
-      <option>Teacher</option>
-      <option>Student</option>
+      <option [ngValue]="1">Adminstrator</option>
+      <option [ngValue]="2">Teacher</option>
+      <option [ngValue]="3">Student</option>
     </select>
   </div>
 
@@ -19,6 +19,8 @@
       class="form-control"
       id="floatingInput"
       placeholder="name@example.com"
+      name="email"
+      [(ngModel)]="email"
     />
   </div>
   <div>
@@ -28,11 +30,19 @@
       class="form-control"
       id="floatingPassword"
       placeholder="Password"
+      name="password"
+      [(ngModel)]="password"
     />
   </div>
 
   <div>
-    <button class="btn btn-md btn-primary" type="submit">Sign in</button>
+    <button 
+      class="btn btn-md btn-primary" 
+      type="submit"
+      (click)=login()
+      >
+      Sign in
+    </button>
     <button
       class="btn btn-md btn-primary"
       style="margin-left: 30px"
