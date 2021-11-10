@@ -16,14 +16,18 @@ import { SearchComponent } from './users/components/search/search.component';
 import { UserDetailsComponent } from './users/components/user-details/user-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CreateUserComponent } from './users/components/create-user/create-user.component';
+import { FormsModule } from '@angular/forms';
+import { UpdateUserComponent } from './users/components/update-user/update-user.component';
 
 const routes: Routes = [
+  { path: 'users', component: UsersComponent },
   { path: 'users/:userId', component: UserDetailsComponent },
+  { path: 'create-user', component: CreateUserComponent },
+  { path: 'update-user/:userId', component: UpdateUserComponent },
   { path: 'search/:keyword', component: UsersComponent },
   { path: 'role/:roleId', component: UsersComponent },
   { path: 'role', component: UsersComponent },
-  { path: 'users', component: UsersComponent },
-  { path: 'users', component: UsersComponent },
   { path: '', redirectTo: '/users', pathMatch: 'full' },
   { path: '**', redirectTo: '/users', pathMatch: 'full' },
 ];
@@ -36,6 +40,8 @@ const routes: Routes = [
     RoleCategoryComponent,
     SearchComponent,
     UserDetailsComponent,
+    CreateUserComponent,
+    UpdateUserComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -46,6 +52,7 @@ const routes: Routes = [
     SharedModule,
     NgbModule,
     NgxPaginationModule,
+    FormsModule,
   ],
   providers: [UsersService],
   bootstrap: [AppComponent],

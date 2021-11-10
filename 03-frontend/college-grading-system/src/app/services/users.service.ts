@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, ObservedValuesFromArray } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Users } from '../users/model/users';
 import { RoleCategory } from '../users/model/role-category';
@@ -14,11 +14,25 @@ export class UsersService {
 
   constructor(private httpClient: HttpClient) {}
 
+  // get all users
+  getAllUsers(): Observable<Users[]> {
+    return this.httpClient.get<Users[]>(`${this.baseUrl}`);
+  }
+
+  // create new user method
+  createUser(user: Users): Observable<Users[]> {
+    return this.httpClient.post<Users[]>(`${this.baseUrl}`, user);
+  }
+
+  // delete existing user method
+  deleteUser(userId: number): Observable<Users[]> {
+    return this.httpClient.delete<Users[]>(`${this.baseUrl}/${userId}`);
+  }
+
   getUser(theUserId: number): Observable<Users> {
     // build URL based on userId
-    const userUrl = `${this.baseUrl}/${theUserId}`;
     console.log(theUserId);
-    return this.httpClient.get<Users>(userUrl);
+    return this.httpClient.get<Users>(`${this.baseUrl}/${theUserId}`);
   }
 
   getUsersListPaginate(
@@ -28,8 +42,8 @@ export class UsersService {
   ): Observable<GetResponseUsers> {
     // build URL based on roleId and page
     const searchUrl =
-      `${this.baseUrl}/search/findByRoleId?roleId=${theRoleId}` +
-      `&page=${thePage}&size=${thePageSize}`;
+      `${this.baseUrl}/search/findByRoleId` +
+      `?roleId=${theRoleId}&page=${thePage}&size=${thePageSize}`;
     return this.httpClient.get<GetResponseUsers>(searchUrl);
   }
 
@@ -47,7 +61,14 @@ export class UsersService {
     return this.getUsers(searchUrl);
   }
 
-  private getUsers(searchUrl: string): Observable<Users[]> {
+  searchUsersId(theUserId: number): Observable<Users[]> {
+    // build URL based on userId
+    const searchUrl = `${this.baseUrl}/search/findByUserId?userId=${theUserId}`;
+
+    return this.getUsers(searchUrl);
+  }
+
+  getUsers(searchUrl: string): Observable<Users[]> {
     return this.httpClient
       .get<GetResponseUsers>(searchUrl)
       .pipe(map((response) => response._embedded.users));

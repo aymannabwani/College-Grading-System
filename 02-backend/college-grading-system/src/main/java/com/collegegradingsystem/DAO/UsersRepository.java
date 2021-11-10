@@ -15,4 +15,23 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
     Page<Users> findByRoleId(@RequestParam("roleId") Long roleId, Pageable pageable);
 
     Page<Users> findByFirstNameContaining(@RequestParam("firstName") String firstName, Pageable pageable);
+
+    Page<Users> findByUserId(@RequestParam("userId") Long userId, Pageable pageable);
+
+    Page<Users> findAll(Pageable pageable);
+
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

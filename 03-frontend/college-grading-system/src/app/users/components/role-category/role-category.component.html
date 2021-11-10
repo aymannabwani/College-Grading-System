@@ -1,17 +1,28 @@
 <div class="menu-sidebar-content js-scrollbar1">
   <nav class="navbar-sidebar">
-    <button
-      type="button"
-      class="btn btn-primary"
-      style="width: 140px; font-size: 14px; font-weight: bolder"
+    <a
+      class="role-category-btn"
+      routerLink="/create-user"
+      routerLinkActive="active-link"
     >
-      Add new User
-    </button>
+      ADD NEW USER
+    </a>
 
-    <ul class="list-unstyled navbar-list" style="padding-top: 40px">
+    <a
+      type="button"
+      class="role-category-btn"
+      routerLinkActive="active-link"
+      (click)="allUsersList('')"
+    >
+      LIST ALL USERS
+    </a>
+
+    <ul class="list-unstyled navbar-list">
       <li *ngFor="let tempRoleCategory of roleCategories">
         <a
-          style="text-decoration: none"
+          type="button"
+          class="role-category-btn"
+          style="color: black; font-size: 0.85rem; padding-top: 10px"
           routerLink="/role/{{ tempRoleCategory.roleId }}"
           routerLinkActive="active-link"
         >
@@ -19,5 +30,9 @@
         >
       </li>
     </ul>
+
+    <a type="button" class="role-category-btn" routerLinkActive="active-link">
+      ADD NEW COURSE
+    </a>
   </nav>
 </div>

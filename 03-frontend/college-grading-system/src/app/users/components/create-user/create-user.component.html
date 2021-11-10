@@ -1,0 +1,56 @@
+<div class="col-md-3" style="margin: 100px">
+  <h2 style="margin-bottom: 20px">New User Form</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>First Name </label>
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        [(ngModel)]="user.firstName"
+        name="firstName"
+      />
+      <label>Last Name </label>
+      <input
+        type="text"
+        class="form-control"
+        id="lastName"
+        [(ngModel)]="user.lastName"
+        name="lastName"
+      />
+      <label>Email</label>
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        [(ngModel)]="user.email"
+        name="email"
+        placeholder="xxxxx@yyyy.zzz"
+      />
+      <label>User's Role</label>
+      <input
+        type="text"
+        class="form-control"
+        id="roleId"
+        [(ngModel)]="user.roleId"
+        name="roleId"
+      />
+      <label>Date of Birth</label>
+      <input
+        type="date"
+        class="form-control"
+        id="birthdate"
+        [(ngModel)]="user.birthdate"
+        name="birthdate"
+        placeholder="yyyy-mm-dd"
+      />
+    </div>
+    <button
+      class="btn btn-success"
+      type="submit"
+      style="margin-top: 30px; font-size: 1.2rem"
+    >
+      Submit
+    </button>
+  </form>
+</div>

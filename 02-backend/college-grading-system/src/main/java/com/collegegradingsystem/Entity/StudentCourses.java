@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
@@ -13,7 +14,7 @@ import java.util.Set;
 @Table(name = "student_courses")
 @Getter
 @Setter
-public class StudentCourses {
+public class StudentCourses implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

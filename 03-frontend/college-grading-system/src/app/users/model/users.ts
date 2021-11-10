@@ -1,7 +1,7 @@
 export class Users {
   userId: number | undefined;
 
-  firstName: string | undefined;
+  firstName!: string;
 
   lastName: string | undefined;
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import { Users } from '../../model/users';
 
@@ -20,18 +20,39 @@ export class UsersComponent implements OnInit {
   theTotalElements: number = 0;
 
   constructor(
+    private allUsersService: UsersService,
     private userService: UsersService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
+    this.getUsers();
     this.route.paramMap.subscribe(() => {
       this.usersList();
     });
   }
 
+  private getUsers() {
+    this.userService.getAllUsers().subscribe((data) => {
+      this.users = data;
+    });
+  }
+
+  updateUser(userId: number) {
+    this.router.navigate(['update-user', userId]);
+  }
+
+  deleteUser(userId: number) {
+    this.userService.deleteUser(userId).subscribe((data) => {
+      console.log('delete user works');
+      this.getUsers();
+    });
+  }
+
   usersList() {
     this.searchMode = this.route.snapshot.paramMap.has('keyword');
+    console.log('searchMode: ' + this.searchMode);
 
     if (this.searchMode) {
       this.handleSearchUsers();
@@ -42,12 +63,24 @@ export class UsersComponent implements OnInit {
 
   handleSearchUsers() {
     const theKeyword: string = this.route.snapshot.paramMap.get('keyword');
+    const theUserId: number = +theKeyword;
 
     console.log('users component works');
-    // search  among Users for the User using the keyword
-    this.userService.searchUsers(theKeyword).subscribe((data) => {
-      this.users = data;
-    });
+
+    // isNaN (is not a number)
+    if (isNaN(theUserId) || theKeyword == '') {
+      // search  among Users for the User using the keyword
+      console.log(' if works');
+      this.userService.searchUsers(theKeyword).subscribe((data) => {
+        this.users = data;
+      });
+    } else {
+      // search  among Users for the User using the userId
+      console.log(' else works');
+      this.userService.searchUsersId(theUserId).subscribe((data) => {
+        this.users = data;
+      });
+    }
   }
 
   handleUsers() {
@@ -90,7 +123,7 @@ export class UsersComponent implements OnInit {
       .subscribe(this.processResult());
   }
 
-  processResult() {
+  private processResult() {
     return (data: any) => {
       this.users = data._embedded.users;
       this.thePageNumber = data.page.number + 1;

@@ -776,27 +776,29 @@ table.table.table-bordered th {
   display: inline-block;
   border-radius: 5px;
   font-size: 1.2rem;
+  margin-left: 20px;
+  margin-top: 4px;
 }
+
 .btn-update {
   color: #fff;
   background-color: #117a3d !important;
   border-color: #3b974a !important;
   text-align: center;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 20px;
+  margin-top: 4px;
   display: inline-block;
   border-radius: 5px;
   font-size: 1.2rem;
 }
 a.primary-btn {
   background: #05143f;
-  padding: 7px 20px;
   text-align: center;
   display: inline-block;
   color: #fff;
   border-radius: 2px;
   font-size: 14px;
-  margin-top: 5px;
+  margin-top: 4px;
 }
 a.primary-btn:hover {
   background: #0da8e4;

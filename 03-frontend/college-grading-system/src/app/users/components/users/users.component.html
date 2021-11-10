@@ -6,12 +6,21 @@
       <table class="table table-bordered" style="border-radius: 10px">
         <thead>
           <!-- looping over the users -->
-          <div *ngFor="let tempUser of users" style="padding: 15px">
+          <div *ngFor="let tempUser of users" style="padding: 10px">
             <tr style="border-style: none">
               <th style="border-radius: 7px 0px 0px 7px; width: 20%">
-                <a routerLink="/users/{{ tempUser.userId }}">
-                  <img src="{{ tempUser.imageUrl }}" class="img-responsive"
-                /></a>
+                <a
+                  style="color: black; font-size: 1.2rem; text-decoration: none"
+                  routerLink="/users/{{ tempUser.userId }}"
+                >
+                  <img
+                    src="{{ tempUser.imageUrl }}"
+                    class="img-responsive"
+                    style="padding-right: 15px"
+                  />User ID :<span style="font-size: 0.9rem; color: blue">
+                    {{ tempUser.userId }}</span
+                  ></a
+                >
               </th>
               <th
                 class="th-layout"
@@ -52,8 +61,19 @@
                 >
                   Details
                 </a>
-                <a type="button" class="btn btn-update">Update</a>
-                <a type="button" class="btn btn-danger">Delete</a>
+                <a
+                  routerLinkActive="active-link"
+                  type="button"
+                  class="btn btn-update"
+                  (click)="updateUser(tempUser.userId)"
+                  >Update</a
+                >
+                <a
+                  type="button"
+                  class="btn btn-danger"
+                  (click)="deleteUser(tempUser.userId)"
+                  >Delete</a
+                >
               </th>
             </tr>
             <tr></tr>
@@ -86,7 +106,7 @@
                 [(page)]="thePageNumber"
                 [pageSize]="thePageSize"
                 [collectionSize]="theTotalElements"
-                [maxSize]="3"
+                [maxSize]="5"
                 [boundaryLinks]="true"
                 (pageChange)="usersList()"
               >

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import { RoleCategory } from '../../model/role-category';
+import { Users } from '../../model/users';
 
 @Component({
   selector: 'app-role-category',
@@ -9,12 +11,20 @@ import { RoleCategory } from '../../model/role-category';
 })
 export class RoleCategoryComponent implements OnInit {
   roleCategories: RoleCategory[];
+  allUsers: Users;
 
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService, private router: Router) {}
 
   ngOnInit(): void {
     this.listRoleCategories();
+    this.allUsersList('');
   }
+  // not working as expected
+  allUsersList(all: string) {
+    console.log(`usersList works`);
+    this.router.navigateByUrl(`/search/${all}`);
+  }
+
   listRoleCategories() {
     this.usersService.getRoleCategories().subscribe((data) => {
       console.log('Role Categories : ' + JSON.stringify(data));

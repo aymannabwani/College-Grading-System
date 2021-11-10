@@ -6,13 +6,14 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "marks")
 @Getter
 @Setter
-public class Marks {
+public class Marks implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
