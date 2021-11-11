@@ -47,6 +47,17 @@ export class UsersService {
     return this.httpClient.get<GetResponseUsers>(searchUrl);
   }
 
+  // get All users new
+  getAllUsersListPaginate(
+    thePage: number,
+    thePageSize: number
+  ): Observable<GetResponseUsers> {
+    // build URL based on roleId and page
+    const searchUrl =
+      `${this.baseUrl}` + `?page=${thePage}&size=${thePageSize}`;
+    return this.httpClient.get<GetResponseUsers>(searchUrl);
+  }
+
   getUsersList(theRoleId: number): Observable<Users[]> {
     // build URL based on roleCategoryId
     const searchUrl = `${this.baseUrl}/search/findByRoleId?roleId=${theRoleId}`;
@@ -56,9 +67,12 @@ export class UsersService {
 
   searchUsers(theKeyword: string): Observable<Users[]> {
     // build URL based on keyword
+    // if (theKeyword == null || theKeyword == '') {
+    //   return this.getAllUsers();
+    // } else {
     const searchUrl = `${this.baseUrl}/search/findByFirstNameContaining?firstName=${theKeyword}`;
-
     return this.getUsers(searchUrl);
+    // }
   }
 
   searchUsersId(theUserId: number): Observable<Users[]> {

@@ -16,7 +16,7 @@ export class UsersComponent implements OnInit {
 
   // declare Pagination properties
   thePageNumber: number = 1;
-  thePageSize: number = 2;
+  thePageSize: number = 4;
   theTotalElements: number = 0;
 
   constructor(
@@ -66,12 +66,14 @@ export class UsersComponent implements OnInit {
     const theUserId: number = +theKeyword;
 
     console.log('users component works');
+    console.log(theKeyword + '/' + theUserId);
 
     // isNaN (is not a number)
     if (isNaN(theUserId) || theKeyword == '') {
       // search  among Users for the User using the keyword
       console.log(' if works');
       this.userService.searchUsers(theKeyword).subscribe((data) => {
+        console.log(' inside works' + JSON.stringify(data));
         this.users = data;
       });
     } else {
@@ -113,14 +115,19 @@ export class UsersComponent implements OnInit {
     );
 
     // get the users for the given roleCategoryId
-
-    this.userService
-      .getUsersListPaginate(
-        this.thePageNumber - 1,
-        this.thePageSize,
-        this.currentRoleId
-      )
-      .subscribe(this.processResult());
+    if (this.currentRoleId == 0) {
+      this.userService
+        .getAllUsersListPaginate(this.thePageNumber - 1, this.thePageSize)
+        .subscribe(this.processResult());
+    } else {
+      this.userService
+        .getUsersListPaginate(
+          this.thePageNumber - 1,
+          this.thePageSize,
+          this.currentRoleId
+        )
+        .subscribe(this.processResult());
+    }
   }
 
   private processResult() {

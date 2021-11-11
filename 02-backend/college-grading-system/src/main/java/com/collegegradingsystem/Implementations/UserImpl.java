@@ -30,7 +30,7 @@ public class UserImpl {
     }
 
     // find user by ID
-    @GetMapping("/users{userId}")
+    @GetMapping("/users/{userId}")
     public ResponseEntity<Users> getTheUserById(@PathVariable Long userId){
         Users theUser = repo.findById(userId)
                             .orElseThrow(() ->

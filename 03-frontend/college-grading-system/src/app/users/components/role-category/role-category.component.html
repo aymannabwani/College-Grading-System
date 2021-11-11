@@ -11,12 +11,12 @@
     <a
       type="button"
       class="role-category-btn"
+      style="color: black; font-size: 0.85rem; padding-top: 10px"
+      routerLink="/role/0"
       routerLinkActive="active-link"
-      (click)="allUsersList('')"
     >
-      LIST ALL USERS
-    </a>
-
+      LIST ALL USERS</a
+    >
     <ul class="list-unstyled navbar-list">
       <li *ngFor="let tempRoleCategory of roleCategories">
         <a
