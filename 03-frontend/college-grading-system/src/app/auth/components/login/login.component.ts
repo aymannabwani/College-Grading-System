@@ -16,7 +16,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  login() {
+  onSubmit() {
+    console.log('login works');
     if (
       this.usersService.authenticate(
         parseInt(this.roleId),

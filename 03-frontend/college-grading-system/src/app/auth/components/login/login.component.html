@@ -1,7 +1,7 @@
 <div class="main-content">
   <div class="section-content section-content-p30">
     <div class="container-fluid">
-      <form class="card">
+      <form (ngSubmit)="onSubmit()" class="card">
         <h1 class="h1 mb-4" style="text-align: center; color: white">
           Please sign in
         </h1>
@@ -9,7 +9,7 @@
         <div>
           <label>User Type</label>
           <select style="height: 40px" (ngModel)="(roleId)">
-            <option value="1">Adminstrator</option>
+            <option selected value="1">Adminstrator</option>
             <option value="2">Teacher</option>
             <option value="3">Student</option>
           </select>
@@ -40,14 +40,6 @@
 
         <div>
           <button class="btn btn-md btn-primary" type="submit">Sign in</button>
-          <button
-            class="btn btn-md btn-primary"
-            style="margin-left: 10px"
-            type="submit"
-            (click)="login()"
-          >
-            Forgot Password
-          </button>
         </div>
       </form>
     </div>
