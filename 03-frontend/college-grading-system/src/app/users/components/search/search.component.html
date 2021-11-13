@@ -8,4 +8,19 @@
   <button (click)="startSearch(myInput.value)" class="au-btn-submit">
     Search
   </button>
+
+  <a
+    routerLink="/login"
+    routerLinkActive="active-link"
+    class="nav-link active"
+    style="margin-left: 600px; color: white"
+    >Login</a
+  >
+  <a
+    routerLink="/login"
+    class="nav-link active"
+    style="margin-left: 25px; color: white"
+    >Logout</a
+  >
+  <!-- TODO ngOnInit calls usersService.logout() -->
 </div>

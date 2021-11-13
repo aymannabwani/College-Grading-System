@@ -1,1 +1,103 @@
-<p>courses works!</p>
+<!-- MAIN CONTENT-->
+
+<div class="main-content">
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <table class="table table-bordered" style="border-radius: 10px">
+        <thead>
+          <!-- looping over the users -->
+          <div *ngFor="let tempCourse of courses" style="padding: 10px">
+            <tr style="border-style: none">
+              <th
+                class="th-layout"
+                style="width: 20%; color: black; font-size: 1.2rem"
+              >
+                Course ID :<span style="font-size: 0.9rem; color: blue">
+                  {{ tempCourse.courseId }}</span
+                >
+              </th>
+              <th
+                class="th-layout"
+                style="width: 20%; color: black; font-size: 1.2rem"
+              >
+                Course Name :<span style="font-size: 0.9rem; color: blue">
+                  {{ tempCourse.courseName }}</span
+                >
+              </th>
+              <th
+                class="th-layout"
+                style="width: 20%; color: black; font-size: 1.2rem"
+              >
+                Teacher:
+                <p
+                  *ngFor="let tempTeacher of teacherCourses"
+                  style="padding: 10px"
+                ></p>
+              </th>
+              <!-- <th class="th-layout" style="border-radius: 0px 7px 7px 0px">
+                  <a
+                    routerLink="/users/{{ tempUser.userId }}"
+                    routerLinkActive="active-link"
+                    type="button"
+                    class="btn btn-primary"
+                  >
+                    Details
+                  </a>
+                  <a
+                    routerLinkActive="active-link"
+                    type="button"
+                    class="btn btn-update"
+                    (click)="updateUser(tempUser.userId)"
+                    >Update</a
+                  >
+                  <a
+                    type="button"
+                    class="btn btn-danger"
+                    (click)="deleteUser(tempUser.userId)"
+                    >Delete</a
+                  >
+                </th> -->
+            </tr>
+            <tr></tr>
+          </div>
+        </thead>
+      </table>
+
+      <!-- if User doesn't exist  then dispaly message -->
+
+      <div
+        *ngIf="users?.length == 0"
+        class="alert alert-warning col-md-12"
+        role="alert"
+      >
+        No User Found.
+      </div>
+    </div>
+
+    <!-- begin footer -->
+
+    <div class="footer-pagination">
+      <div class="row">
+        <div>
+          <div class="row">
+            <div class="col-md-9" style="margin-top: 5%; padding-left: 30%">
+              <!-- <ngb-pagination
+                  class="pagination"
+                  [(page)]="thePageNumber"
+                  [pageSize]="thePageSize"
+                  [collectionSize]="theTotalElements"
+                  [maxSize]="5"
+                  [boundaryLinks]="true"
+                  (pageChange)="usersList()"
+                >
+                </ngb-pagination> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- end footer -->
+    </div>
+  </div>
+</div>
+<!-- end of MAIN CONTENT-->

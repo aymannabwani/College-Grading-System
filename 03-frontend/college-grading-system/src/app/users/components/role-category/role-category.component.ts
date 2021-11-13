@@ -22,7 +22,7 @@ export class RoleCategoryComponent implements OnInit {
   // not working as expected
   allUsersList(all: string) {
     console.log(`usersList works`);
-    this.router.navigateByUrl(`/search/${all}`);
+    // this.router.navigateByUrl(`/search/${all}`);
   }
 
   listRoleCategories() {

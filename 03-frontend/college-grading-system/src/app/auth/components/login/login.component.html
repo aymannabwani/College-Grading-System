@@ -1,45 +1,55 @@
-<!-- <router-outlet></router-outlet> -->
-<form class="card">
-  <h1 class="h1 mb-4" style="text-align: center">Please sign in</h1>
+<div class="main-content">
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <form class="card">
+        <h1 class="h1 mb-4" style="text-align: center; color: white">
+          Please sign in
+        </h1>
 
-  <div>
-    <label>User Type</label>
-    <select formControlName="user" style="height: 40px">
-      <option selected disabled>Select User</option>
-      <option>Adminstartor</option>
-      <option>Teacher</option>
-      <option>Student</option>
-    </select>
-  </div>
+        <div>
+          <label>User Type</label>
+          <select style="height: 40px" (ngModel)="(roleId)">
+            <option value="1">Adminstrator</option>
+            <option value="2">Teacher</option>
+            <option value="3">Student</option>
+          </select>
+        </div>
 
-  <div>
-    <label>Email address</label>
-    <input
-      type="email"
-      class="form-control"
-      id="floatingInput"
-      placeholder="name@example.com"
-    />
-  </div>
-  <div>
-    <label>Password</label>
-    <input
-      type="password"
-      class="form-control"
-      id="floatingPassword"
-      placeholder="Password"
-    />
-  </div>
+        <div>
+          <label>Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+            name="email"
+            (ngModel)="(email)"
+          />
+        </div>
+        <div>
+          <label>Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="floatingPassword"
+            placeholder="Password"
+            name="password"
+            (ngModel)="(password)"
+          />
+        </div>
 
-  <div>
-    <button class="btn btn-md btn-primary" type="submit">Sign in</button>
-    <button
-      class="btn btn-md btn-primary"
-      style="margin-left: 30px"
-      type="submit"
-      routerLink="/forgot-password"
-    >
-      Forgot Password
-    </button>
+        <div>
+          <button class="btn btn-md btn-primary" type="submit">Sign in</button>
+          <button
+            class="btn btn-md btn-primary"
+            style="margin-left: 10px"
+            type="submit"
+            (click)="login()"
+          >
+            Forgot Password
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
-</form>
+</div>
