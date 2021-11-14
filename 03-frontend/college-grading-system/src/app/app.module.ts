@@ -22,6 +22,7 @@ import { UpdateUserComponent } from './users/components/update-user/update-user.
 import { CoursesComponent } from './users/components/courses/courses.component';
 import { MarksComponent } from './users/components/marks/marks.component';
 import { LoginComponent } from './auth/components/login/login.component';
+import { AdminAuthService } from './auth/adminAuth.service';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -29,18 +30,17 @@ const routes: Routes = [
   { path: 'marks', component: MarksComponent },
   { path: 'users', component: UsersComponent },
   { path: 'users/:userId', component: UserDetailsComponent },
-  { path: 'create-user', component: CreateUserComponent },
+  {
+    path: 'create-user',
+    component: CreateUserComponent,
+    canActivate: [AdminAuthService],
+  },
   { path: 'update-user/:userId', component: UpdateUserComponent },
   { path: 'search/:keyword', component: UsersComponent },
   { path: 'role/:roleId', component: UsersComponent },
   { path: 'role', component: UsersComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '/users', pathMatch: 'full' },
-
-  /**
-   * TODO
-   *  {path: 'teacherOnly', component: XYZ, teacherAccess[AuthService] }
-   */
 ];
 
 @NgModule({

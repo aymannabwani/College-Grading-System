@@ -9,14 +9,10 @@ import { UsersService } from '../services/users.service';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class AdminAuthService {
   constructor(private router: Router, private usersService: UsersService) {}
 
-  teacherAccess(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.usersService.isTeacherLoggedIn();
-  }
-
-  studentAccess(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.usersService.isStudentLoggedIn();
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    return this.usersService.isAdminstratorLoggedIn();
   }
 }
