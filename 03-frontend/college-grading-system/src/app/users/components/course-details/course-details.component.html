@@ -1,0 +1,54 @@
+<div class="detail-section" style="margin-top: 60px; margin-left: 30px">
+  <div class="container-fluid">
+    <h1 style="margin-top: 90px">Course Details</h1>
+
+    <ul
+      style="
+        list-style: none;
+        font-size: 1.2rem;
+        font-weight: bolder;
+        color: black;
+      "
+    >
+      <li style="margin: 0px; color: black">
+        Course Name :
+        <span style="font-size: 1.5rem; color: blue">{{
+          course.courseName
+        }}</span>
+      </li>
+      <li style="margin: 0px; color: black">
+        Start Date :
+        <span style="font-size: 1.5rem; color: blue">{{
+          course.startDate
+        }}</span>
+      </li>
+      <li style="margin: 0px; color: black">
+        End Date :
+        <span style="font-size: 1.5rem; color: blue">{{ course.endDate }}</span>
+      </li>
+      <li style="margin: 0px; color: black">
+        Teachers :
+
+        <span style="font-size: 1.5rem; color: blue">{{
+          course.courseId
+        }}</span>
+        <!-- TODO display teachers names according to Course ID/Name -->
+        <!-- <a
+                  style="color: black; font-size: 1.2rem; text-decoration: none"
+                  routerLink="/courses"
+                  >Course ID :<span style="font-size: 0.9rem; color: blue">
+                    {{ tempTeacherCourses.teacherId }}</span
+                  ></a
+                > -->
+      </li>
+    </ul>
+
+    <a
+      routerLink="/courses"
+      class="btn btn-primary"
+      style="text-decoration: none; text-align: center; margin-top: 30px"
+      routerLinkActive="active-link"
+      >CLose</a
+    >
+  </div>
+</div>

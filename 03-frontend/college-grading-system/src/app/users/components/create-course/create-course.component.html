@@ -1,5 +1,5 @@
 <div class="col-md-3" style="margin: 100px">
-  <h2 style="margin-bottom: 20px">Update Course</h2>
+  <h2 style="margin-bottom: 20px">New Course Form</h2>
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label>Course Name </label>
@@ -12,24 +12,29 @@
       />
       <label>Start Date </label>
       <input
-        type="date"
+        type="text"
         class="form-control"
         id="startDate"
         [(ngModel)]="course.startDate"
         name="startDate"
-        placeholder="yyyy-mm-dd"
       />
       <label>End Date</label>
       <input
-        type="date"
+        type="text"
         class="form-control"
-        id="endDate"
+        id="endtDate"
         [(ngModel)]="course.endDate"
-        name="endDate"
-        placeholder="yyyy-mm-dd"
+        name="endtDate"
       />
-
-      <label>Updated By</label>
+      <label>Created By </label>
+      <input
+        type="text"
+        class="form-control"
+        id="createdBy"
+        [(ngModel)]="course.createdBy"
+        name="createdBy"
+      />
+      <label>Updated By </label>
       <input
         type="text"
         class="form-control"

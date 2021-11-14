@@ -20,7 +20,6 @@ export class UsersComponent implements OnInit {
   theTotalElements: number = 0;
 
   constructor(
-    private allUsersService: UsersService,
     private userService: UsersService,
     private route: ActivatedRoute,
     private router: Router

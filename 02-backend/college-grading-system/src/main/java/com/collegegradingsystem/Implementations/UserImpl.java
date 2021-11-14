@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -18,25 +17,25 @@ public class UserImpl {
     private UsersRepository repo;
 
     // get all users (not working as expected)
-    @GetMapping("/users")
-    public List<Users> getAllUsers(){
-        return repo.findAll();
-    }
+//    @GetMapping("/users")
+//    public List<Users> getAllUsers(){
+//        return repo.findAll();
+//    }
 
     // create new user
-    @PostMapping("/users")
-    public Users createNewUser(@RequestBody Users user){
-      return repo.save(user);
-    }
+//    @PostMapping("/users")
+//    public Users createNewUser(@RequestBody Users user){
+//      return repo.save(user);
+//    }
 
     // find user by ID
-    @GetMapping("/users/{userId}")
-    public ResponseEntity<Users> getTheUserById(@PathVariable Long userId){
-        Users theUser = repo.findById(userId)
-                            .orElseThrow(() ->
-                            new ResourceNotFoundException("User with ID: \" + userId + \" doesn't exist"));
-        return ResponseEntity.ok(theUser);
-    }
+//    @GetMapping("/users/{userId}")
+//    public ResponseEntity<Users> getTheUserById(@PathVariable Long userId){
+//        Users theUser = repo.findById(userId)
+//                            .orElseThrow(() ->
+//                            new ResourceNotFoundException("User with ID: \" + userId + \" doesn't exist"));
+//        return ResponseEntity.ok(theUser);
+//    }
 
     // update existing user
     @PutMapping("/users/{userId}")

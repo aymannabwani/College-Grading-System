@@ -23,13 +23,27 @@ import { CoursesComponent } from './users/components/courses/courses.component';
 import { MarksComponent } from './users/components/marks/marks.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { AdminAuthService } from './auth/adminAuth.service';
+import { CourseService } from './services/course.service';
+import { UpdateCoursesComponent } from './users/components/update-courses/update-courses.component';
+import { CreateCourseComponent } from './users/components/create-course/create-course.component';
+import { UpdateMarksComponent } from './users/components/update-marks/update-marks.component';
+import { TeacherCourses } from './users/model/teacher-courses';
+import { CourseDetailsComponent } from './users/components/course-details/course-details.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'courses', component: CoursesComponent },
+  { path: 'courses/:courseId', component: CourseDetailsComponent },
+  { path: 'teacher-courses', component: TeacherCourses },
+  { path: 'update-course/:courseId', component: UpdateCoursesComponent },
   { path: 'marks', component: MarksComponent },
   { path: 'users', component: UsersComponent },
   { path: 'users/:userId', component: UserDetailsComponent },
+  {
+    path: 'create-course',
+    component: CreateCourseComponent,
+    canActivate: [AdminAuthService],
+  },
   {
     path: 'create-user',
     component: CreateUserComponent,
@@ -54,6 +68,14 @@ const routes: Routes = [
     CreateUserComponent,
     UpdateUserComponent,
     LoginComponent,
+    CoursesComponent,
+    CreateCourseComponent,
+    UpdateCoursesComponent,
+    MarksComponent,
+    UpdateMarksComponent,
+    UpdateCoursesComponent,
+    UpdateMarksComponent,
+    CourseDetailsComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -66,7 +88,7 @@ const routes: Routes = [
     NgxPaginationModule,
     FormsModule,
   ],
-  providers: [UsersService],
+  providers: [UsersService, CourseService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

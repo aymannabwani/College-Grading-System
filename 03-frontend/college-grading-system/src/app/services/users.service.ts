@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, ObservedValuesFromArray, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 import { Users } from '../users/model/users';
 import { RoleCategory } from '../users/model/role-category';
-import { Router } from '@angular/router';
-// import { EmptyObservable } from 'rxjs/observable/EmptyObservable';
 
 @Injectable({
   providedIn: 'root',
@@ -69,12 +68,8 @@ export class UsersService {
 
   searchUsers(theKeyword: string): Observable<Users[]> {
     // build URL based on keyword
-    // if (theKeyword == null || theKeyword == '') {
-    //   return this.getAllUsers();
-    // } else {
     const searchUrl = `${this.baseUrl}/search/findByFirstNameContaining?firstName=${theKeyword}`;
     return this.getUsers(searchUrl);
-    // }
   }
 
   searchUsersId(theUserId: number): Observable<Users[]> {
@@ -133,9 +128,9 @@ export class UsersService {
   }
 }
 
-interface GetResponseLoggedUser {
-  users: Users;
-}
+// interface GetResponseLoggedUser {
+//   users: Users;
+// }
 
 interface GetResponseUsers {
   _embedded: {
