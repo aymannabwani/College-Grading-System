@@ -4,6 +4,7 @@
       class="role-category-btn"
       routerLink="/create-user"
       routerLinkActive="active-link"
+      *ngIf="usersService.isAdminstratorLoggedIn()"
     >
       ADD NEW USER
     </a>

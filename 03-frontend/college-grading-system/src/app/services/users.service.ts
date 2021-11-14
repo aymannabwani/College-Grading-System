@@ -93,6 +93,8 @@ export class UsersService {
       } else {
         sessionStorage.setItem('roleId', roleId.toString());
 
+        console.log(sessionStorage.getItem('roleId'));
+
         console.log('user found ', user);
 
         this.router.navigateByUrl(`/home`);
@@ -100,10 +102,6 @@ export class UsersService {
     });
   }
 
-  /**
-   * TODO
-   * <a *ngIf="usersService.isAdminstratorLoggedIn()" routerLink="/adminOnlyPath">
-   */
   isAdminstratorLoggedIn() {
     return sessionStorage.getItem('roleId') == '1';
   }

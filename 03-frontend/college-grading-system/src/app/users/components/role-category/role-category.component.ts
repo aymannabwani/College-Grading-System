@@ -12,11 +12,13 @@ import { Users } from '../../model/users';
 export class RoleCategoryComponent implements OnInit {
   roleCategories: RoleCategory[];
   allUsers: Users;
+  usersService: UsersService;
 
-  constructor(private usersService: UsersService, private router: Router) {}
+  constructor(private rolesService: UsersService, private router: Router) {}
 
   ngOnInit(): void {
     this.listRoleCategories();
+    this.usersService = this.rolesService;
     this.allUsersList('');
   }
   // not working as expected
@@ -26,7 +28,7 @@ export class RoleCategoryComponent implements OnInit {
   }
 
   listRoleCategories() {
-    this.usersService.getRoleCategories().subscribe((data) => {
+    this.rolesService.getRoleCategories().subscribe((data) => {
       console.log('Role Categories : ' + JSON.stringify(data));
       this.roleCategories = data;
       console.log(data);
