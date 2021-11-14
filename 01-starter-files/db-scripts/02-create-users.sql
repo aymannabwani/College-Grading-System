@@ -116,8 +116,6 @@ INSERT INTO users (first_name, last_name, role_id, image_url, university, addres
 INSERT INTO users (first_name, last_name, role_id, image_url, university, address, city, province, postal_code, country, phone, fax, email, gender, birthdate, password, active, created_by, updated_by, date_created, last_updated)
 			VALUES ('Gassan', 'Kanafani', 3, 'assets/images/Students/8.png', 'MCIT','121e Avenue', 'Laval', 'Quebec', 'G2L8I9', 'Canada', '1234567890', '1212131314', 'gassan_kanafani@gmail.com', 'Male', '1989-12-31', 2100000000008, 1, 'Mohd', NULL, NOW(), NULL);
 
-----------
-
 INSERT INTO users (first_name, last_name, role_id, image_url, university, address, city, province, postal_code, country, phone, fax, email, gender, birthdate, password, active, created_by, updated_by, date_created, last_updated)
             VALUES ('liam', 'Ford', 1, 'assets/images/Adminstrators/1.png', 'Damascus', '12e Avenue', 'Laval', 'Quebec', 'A1B2C3', 'Canada', '1234567890', '1212131314', 'liam_ford@gmail.com', 'Male', '1985-10-03', 2100500000000, 1, 'John', NULL, NOW(), NULL);
 
@@ -178,7 +176,7 @@ INSERT INTO users (first_name, last_name, role_id, image_url, university, addres
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `college-grading-system`.`courses` (
   `course_id` BIGINT(8) NOT NULL AUTO_INCREMENT,
-  `course_name` VARCHAR(255) DEFAULT NULL,
+  `course_name` VARCHAR(255) UNIQUE,
   `active` BIT DEFAULT 1,
   `start_date` DATETIME(6) DEFAULT NULL,
   `end_date` DATETIME(6) DEFAULT NULL,
@@ -244,7 +242,8 @@ AUTO_INCREMENT = 1;
 -- Add sample data for teacher_courses
 -- -----------------------------------------------------
 
-
+INSERT INTO teacher_courses (course_id, teacher_id, created_by, updated_by, date_created, last_updated)
+VALUES (1, 3, 'Mohd', NULL, NOW(), NOW());
 
 -- -----------------------------------------------------
 -- Table `college-grading-system`.`student_courses`
