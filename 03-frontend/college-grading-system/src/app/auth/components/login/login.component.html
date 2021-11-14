@@ -8,10 +8,15 @@
 
         <div>
           <label>User Type</label>
-          <select style="height: 40px" (ngModel)="(roleId)">
-            <option selected value="1">Adminstrator</option>
-            <option value="2">Teacher</option>
-            <option value="3">Student</option>
+
+          <select
+            style="height: 40px"
+            name="roleIdAsString"
+            [(ngModel)]="roleIdAsString"
+          >
+            <option selected name="1">Adminstrator</option>
+            <option name="2">Teacher</option>
+            <option name="3">Student</option>
           </select>
         </div>
 
@@ -23,7 +28,7 @@
             id="floatingInput"
             placeholder="name@example.com"
             name="email"
-            (ngModel)="(email)"
+            [(ngModel)]="email"
           />
         </div>
         <div>
@@ -34,7 +39,7 @@
             id="floatingPassword"
             placeholder="Password"
             name="password"
-            (ngModel)="(password)"
+            [(ngModel)]="password"
           />
         </div>
 

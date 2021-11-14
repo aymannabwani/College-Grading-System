@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, ObservedValuesFromArray } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, ObservedValuesFromArray, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { Users } from '../users/model/users';
 import { RoleCategory } from '../users/model/role-category';
+import { Router } from '@angular/router';
+// import { EmptyObservable } from 'rxjs/observable/EmptyObservable';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +14,7 @@ export class UsersService {
   private baseUrl = 'http://localhost:8080/api/users';
   private roleUrl = 'http://localhost:8080/api/role_category';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private router: Router) {}
 
   // get all users
   getAllUsers(): Observable<Users[]> {
@@ -82,20 +84,20 @@ export class UsersService {
     return this.getUsers(searchUrl);
   }
 
-  authenticate(roleId: number, email: string, password: string) {
+  authenticate(roleId: number, email: string, password: number) {
     const searchUrl = `${this.baseUrl}/search/findByRoleIdAndEmailAndPassword?roleId=${roleId}&email=${email}&password=${password}`;
-    if (this.getLoggedUser(searchUrl) != null) {
-      sessionStorage.setItem('roleId', roleId.toString());
-      return true;
-    } else {
-      return false;
-    }
-  }
+    console.log(searchUrl);
+    this.getUsers(searchUrl).subscribe((user) => {
+      if (user.length == 0) {
+        console.log('no user found');
+      } else {
+        sessionStorage.setItem('roleId', roleId.toString());
 
-  private getLoggedUser(searchUrl: string): Observable<Users> {
-    return this.httpClient
-      .get<GetResponseLoggedUser>(searchUrl)
-      .pipe(map((response) => response._embedded.users));
+        console.log('user found ', user);
+
+        this.router.navigateByUrl(`/home`);
+      }
+    });
   }
 
   /**
@@ -134,9 +136,7 @@ export class UsersService {
 }
 
 interface GetResponseLoggedUser {
-  _embedded: {
-    users: Users;
-  };
+  users: Users;
 }
 
 interface GetResponseUsers {

@@ -8,26 +8,29 @@ import { Users } from 'src/app/users/model/users';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  roleId: string;
+  roleIdAsString: string;
   email: string;
-  password: string;
+  password: number;
+  roleId: number;
 
   constructor(private usersService: UsersService) {}
 
   ngOnInit(): void {}
 
   onSubmit() {
-    console.log('login works');
-    if (
-      this.usersService.authenticate(
-        parseInt(this.roleId),
-        this.email,
-        this.password
-      )
-    ) {
-      console.log('Logged in');
-    } else {
-      console.error('Failed to log in');
+    switch (this.roleIdAsString) {
+      case 'Adminstrator':
+        this.roleId = 1;
+        break;
+      case 'Teacher':
+        this.roleId = 2;
+        break;
+      case 'Student':
+        this.roleId = 3;
+        break;
     }
+    console.log(this.roleId, this.email, this.password);
+
+    this.usersService.authenticate(this.roleId, this.email, this.password);
   }
 }
