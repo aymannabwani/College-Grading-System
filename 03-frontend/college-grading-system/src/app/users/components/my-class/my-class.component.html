@@ -31,28 +31,7 @@
                   {{ tempUser.lastName }}</span
                 >
               </th>
-              <th
-                class="th-layout"
-                style="width: 20%; color: black; font-size: 1.2rem"
-              >
-                <ul [ngSwitch]="tempUser.roleId" style="list-style: none">
-                  <li style="margin: 0px" *ngSwitchCase="'1'">
-                    Role :
-                    <span style="font-size: 0.9rem; color: blue"
-                      >Adminstrator</span
-                    >
-                  </li>
-                  <li style="margin: 0px" *ngSwitchCase="'2'">
-                    Role :
-                    <span style="font-size: 0.9rem; color: blue">Teacher</span>
-                  </li>
-                  <li style="margin: 0px" *ngSwitchCase="'3'">
-                    Role :
-                    <span style="font-size: 0.9rem; color: blue">Student</span>
-                  </li>
-                </ul>
-              </th>
-              <th class="th-layout" style="border-radius: 0px 7px 7px 0px">
+              <!-- <th class="th-layout" style="border-radius: 0px 7px 7px 0px">
                 <a
                   routerLink="/users/{{ tempUser.userId }}"
                   routerLinkActive="active-link"
@@ -74,7 +53,7 @@
                   (click)="deleteUser(tempUser.userId)"
                   >Delete</a
                 >
-              </th>
+              </th> -->
             </tr>
             <tr></tr>
           </div>

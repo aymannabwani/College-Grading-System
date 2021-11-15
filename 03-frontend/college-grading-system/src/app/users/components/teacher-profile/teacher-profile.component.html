@@ -1,0 +1,18 @@
+<div class="detail-section" style="margin-top: 90px; margin-left: 30px">
+  <div class="container-fluid">
+    <h2>Teacher's Photo</h2>
+    <img src="{{ user.imageUrl }}" class="detail-img" />
+    <h2>Teacher's Name:</h2>
+    <h2 style="margin-top: 50px">{{ user.firstName }} {{ user.lastName }}</h2>
+
+    <h2>Role ID : {{ user.roleId }}</h2>
+
+    <a
+      routerLink="/login"
+      class="btn btn-primary"
+      style="text-decoration: none; text-align: center; margin-top: 30px"
+      routerLinkActive="active-link"
+      >CLose</a
+    >
+  </div>
+</div>

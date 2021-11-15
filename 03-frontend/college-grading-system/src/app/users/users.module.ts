@@ -4,12 +4,9 @@ import { UsersRoutingModule } from './users-routing.module';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
-import { CourseDetailsComponent } from './course-details/course-details.component';
 
 @NgModule({
-  declarations: [
-    CourseDetailsComponent
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     UsersRoutingModule,

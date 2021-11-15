@@ -120,11 +120,7 @@ export class CoursesComponent implements OnInit {
         .subscribe(this.processResult());
     } else {
       this.courseService
-        .getCoursesListPaginate(
-          this.thePageNumber - 1,
-          this.thePageSize,
-          this.currentCourseId
-        )
+        .getCoursesListPaginate(this.thePageNumber - 1, this.thePageSize)
         .subscribe(this.processResult());
     }
   }

@@ -29,10 +29,10 @@ public class Marks implements Serializable {
     private StudentCourses scId;
 
     @Column(name = "std_crs_id")
-    private String stdCrsId;
+    private Long stdCrsId;
 
     @Column(name = "student_id")
-    private String studentId;
+    private Long studentId;
 
     @Column(name = "mark_1")
     private Double mark1;

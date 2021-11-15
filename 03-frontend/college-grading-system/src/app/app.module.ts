@@ -29,15 +29,37 @@ import { CreateCourseComponent } from './users/components/create-course/create-c
 import { UpdateMarksComponent } from './users/components/update-marks/update-marks.component';
 import { TeacherCourses } from './users/model/teacher-courses';
 import { CourseDetailsComponent } from './users/components/course-details/course-details.component';
+import { MyCoursesComponent } from './users/components/my-courses/my-courses.component';
+import { MyClassComponent } from './users/components/my-class/my-class.component';
+import { StudentProfileComponent } from './users/components/student-profile/student-profile.component';
+import { TeacherProfileComponent } from './users/components/teacher-profile/teacher-profile.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'courses', component: CoursesComponent },
+  {
+    path: 'teacher-profile',
+    component: TeacherProfileComponent,
+  },
+  {
+    path: 'my-courses',
+    component: MyCoursesComponent,
+  },
+  {
+    path: 'my-class',
+    component: MyClassComponent,
+  },
   { path: 'courses/:courseId', component: CourseDetailsComponent },
   { path: 'teacher-courses', component: TeacherCourses },
   { path: 'update-course/:courseId', component: UpdateCoursesComponent },
   { path: 'marks', component: MarksComponent },
-  { path: 'users', component: UsersComponent },
+  { path: 'users', component: UsersComponent, canActivate: [AdminAuthService] },
+
+  {
+    path: 'student-profile',
+    component: StudentProfileComponent,
+    canActivate: [AdminAuthService],
+  },
   { path: 'users/:userId', component: UserDetailsComponent },
   {
     path: 'create-course',
@@ -76,6 +98,13 @@ const routes: Routes = [
     UpdateCoursesComponent,
     UpdateMarksComponent,
     CourseDetailsComponent,
+    MyClassComponent,
+    MyCoursesComponent,
+    CourseDetailsComponent,
+    MyCoursesComponent,
+    MyClassComponent,
+    TeacherProfileComponent,
+    StudentProfileComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),

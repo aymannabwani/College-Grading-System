@@ -33,8 +33,7 @@ export class CourseService {
 
   getCoursesListPaginate(
     thePage: number,
-    thePageSize: number,
-    theCourseId: number
+    thePageSize: number
   ): Observable<GetResponseCourses> {
     // build URL based on courseId and page
     const searchUrl =

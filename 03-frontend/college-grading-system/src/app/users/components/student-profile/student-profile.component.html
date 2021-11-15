@@ -1,0 +1,32 @@
+<div class="detail-section" style="margin-top: 90px; margin-left: 30px">
+  <div class="container-fluid">
+    <h2>Student's Photo</h2>
+    <img src="{{ student.imageUrl }}" class="detail-img" />
+    <h2>Student's Name:</h2>
+    <h2 style="margin-top: 50px">
+      {{ student.firstName }} {{ student.lastName }}
+    </h2>
+
+    <h2>Role ID : {{ student.roleId }}</h2>
+    <a
+      routerLink="/marks"
+      class="btn btn-primary"
+      style="
+        text-decoration: none;
+        text-align: center;
+        margin-top: 30px;
+        width: 120px;
+        margin-right: 25px;
+      "
+      routerLinkActive="active-link"
+      >My Marks</a
+    >
+    <a
+      routerLink="/login"
+      class="btn btn-primary"
+      style="text-decoration: none; text-align: center; margin-top: 30px"
+      routerLinkActive="active-link"
+      >CLose</a
+    >
+  </div>
+</div>

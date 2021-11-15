@@ -29,11 +29,11 @@ public class StudentCourses implements Serializable {
     private Users role;
 
     @ManyToOne
-    @JoinColumn(name = "tchr_crs_id", insertable = false, updatable = false)
+    @JoinColumn(name = "std_tchr_crs_id", insertable = false, updatable = false)
     private TeacherCourses tcId;
 
-    @Column(name = "tchr_crs_id")
-    private Long tchrCrsId;
+    @Column(name = "std_tchr_crs_id")
+    private Long stdTchrCrsId;
 
     @Column(name = "student_id")
     private Long teacherId;
