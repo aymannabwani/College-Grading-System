@@ -10,8 +10,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
-@Entity
-@Table(name = "teacher_courses")
+@Entity(name = "teacher_courses")
 @Getter
 @Setter
 public class TeacherCourses implements Serializable {

@@ -10,8 +10,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
-@Entity
-@Table(name = "student_courses")
+@Entity(name = "student_courses")
 @Getter
 @Setter
 public class StudentCourses implements Serializable {
@@ -36,7 +35,7 @@ public class StudentCourses implements Serializable {
     private Long stdTchrCrsId;
 
     @Column(name = "student_id")
-    private Long teacherId;
+    private Long studentId;
 
     @Column(name = "created_by")
     private String createdBy;
